@@ -1,13 +1,58 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: verlag-black;
+  src: url("../public/fonts/Verlag-Black.otf");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: verlag-bold;
+  src: url("../public/fonts/Verlag-Bold.otf");
+}
+
+@font-face {
+  font-family: verlag-regular;
+  src: url("../public/fonts/Verlag-Regular.otf");
+}
+
+@font-face {
+  font-family: verlag-light;
+  src: url("../public/fonts/Verlag-Light.otf");
+}
+
+body {
+  background-color: #f3f2f3;
+}
+
+.font-verlag-black {
+  font-family: verlag-black, sans-serif;
+}
+
+.font-verlag-bold {
+  font-family: verlag-bold, sans-serif;
+}
+
+.font-verlag-regular {
+  font-family: verlag-regular, sans-serif;
+}
+
+.font-verlag-light {
+  font-family: verlag-light, sans-serif;
+}
+
+.bg-eggplant {
+  background-color: #5e4659;
+}
+
+.text-eggplant {
+  color: #5e4659;
+}
+
+/* === Customize Style === */
+.form-control {
+  background-color: #e8e7e8;
+  border: 1px transparent;
+}
+
+.form-control:focus {
+  outline: 1px solid #5e4659;
+  box-shadow: none;
 }
