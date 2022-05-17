@@ -1,13 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
+import StudentForm from "./StudentForm";
+import MenuForm from "./MenuForm";
+import Summary from "./Summary";
 
 export default function FormEveryday() {
+  const [page, setPage] = useState(0);
+
+  const FormTitle = ["StudentForm", "MenuForm", "Summary", "Thankyou"];
+
+  const Page = () => {
+    if (page === 0) {
+      return <StudentForm />;
+    } else if (page === 1) {
+      return <MenuForm />;
+    } else {
+      return <Summary />;
+    }
+  };
+
   return (
-    <section>
-      <div className="container-xxl">
-        <div className="col-lg-8">
-          <h2 className="text-uppercase">Student Details</h2>
+    <div className="container-xxl px-4">
+      <div className="mb-5">{Page()}</div>
+      <div className="row">
+        <div className="col-lg-4 d-flex justify-content-between mx-auto font-verlag-regular">
+          <button
+            disabled={page === FormTitle.length - 1}
+            onClick={() => {
+              setPage((currentPage) => currentPage - 1);
+            }}
+            className="btn main-button w-100 me-2"
+          >
+            Prev
+          </button>
+          <button
+            onClick={() => {
+              setPage((currentPage) => currentPage + 1);
+            }}
+            className="btn main-button w-100"
+          >
+            Next
+          </button>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
