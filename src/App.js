@@ -18,13 +18,13 @@ function App() {
       <main>
         <FormEveryday />
       </main>
-      <footer className="fixed-bottom text-end">
+      {/* <footer className="fixed-bottom text-end">
         <img
           src="images/goodfood-footer-pattern.svg"
           alt="goodfood-header-pattern"
           className="img-fluid"
         />
-      </footer>
+      </footer> */}
     </div>
   );
 }

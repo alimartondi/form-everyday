@@ -50,6 +50,14 @@ label {
   color: #5e4659;
 }
 
+.tracking-wide {
+  letter-spacing: 3px;
+}
+
+.text-sm {
+  font-size: 15px;
+}
+
 /* === Customize Style === */
 .main-button {
   background-color: #5e4659;
@@ -70,6 +78,11 @@ label {
 .main-button:focus {
   outline: 1px solid #5e4659;
   box-shadow: none;
+}
+
+.count-button {
+  border: none;
+  padding: 5px;
 }
 
 .form-control {
