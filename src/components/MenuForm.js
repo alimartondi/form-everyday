@@ -193,46 +193,4 @@ const dataMenu = [
       },
     ],
   },
-  // {
-  //   id: 1,
-  //   cuisine: "indonesia",
-  //   foodCategory: [
-  //     {
-  //       mainDish: [
-  //         {
-  //           foodName: "Seblak",
-  //         },
-  //         {
-  //           foodName: "Cilok",
-  //         },
-  //       ],
-  //       Snack: [
-  //         {
-  //           foodName: "Sukro",
-  //         },
-  //         {
-  //           foodName: "Borobudur",
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 2,
-  //   cuisine: "india",
-  //   Snack: [
-  //     {
-  //       id: 23,
-  //       name: "Seblak",
-  //       description: "Lorem ipsum dolor sit amet.",
-  //       price: "12000",
-  //     },
-  //     {
-  //       id: 4,
-  //       name: "Seblak",
-  //       description: "Lorem ipsum dolor sit amet.",
-  //       price: "12000",
-  //     },
-  //   ],
-  // },
 ];
