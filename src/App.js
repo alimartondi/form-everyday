@@ -1,4 +1,26 @@
 import FormEveryday from "./components/FormEveryday";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import StudentForm from "./components/StudentForm";
+import MenuForm from "./components/MenuForm";
+import Summary from "./components/Summary";
+import Thankyou from "./components/Thankyou";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
+
+function RouteApp() {
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<StudentForm />} />
+          <Route path="/menu" element={<MenuForm />} />
+          <Route path="/summary" element={<Summary />} />
+          <Route path="/thankyou" element={<Thankyou />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
+  );
+}
 
 function App() {
   return (
@@ -29,4 +51,4 @@ function App() {
   );
 }
 
-export default App;
+export default RouteApp;

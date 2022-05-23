@@ -19,7 +19,7 @@ export default function FormEveryday() {
   };
 
   return (
-    <div className="container-xxl px-4">
+    <div className="container px-4 py-5">
       <div className="mb-5">{Page()}</div>
       <div className="row">
         <div className="col-lg-4 d-flex justify-content-between mx-auto font-verlag-regular">

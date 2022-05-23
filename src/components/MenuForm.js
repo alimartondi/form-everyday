@@ -1,6 +1,15 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function MenuForm() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleSubmission = () => {
+    // dispatch(submitStudentForm({ studentName: "Ali", age: 26 }));
+    navigate("../summary");
+  };
   return (
     <div className="row font-verlag-regular text-eggplant">
       <div className="col-lg-4">
@@ -102,6 +111,14 @@ export default function MenuForm() {
             ))}
           </div>
         ))}
+      </div>
+      <div>
+        <button
+          onClick={handleSubmission}
+          className="btn main-button w-100 me-2"
+        >
+          Next
+        </button>
       </div>
     </div>
   );
