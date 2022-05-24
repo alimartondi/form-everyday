@@ -42,6 +42,17 @@ label {
   font-family: verlag-light, sans-serif;
 }
 
+.main-title {
+  font-family: "verlag-black", sans-serif;
+  font-size: 30px;
+  letter-spacing: 3px;
+}
+
+.description {
+  font-family: "verlag-regular", sans-serif;
+  font-size: 16px;
+}
+
 .bg-eggplant {
   background-color: #5e4659;
 }
@@ -93,4 +104,60 @@ label {
 .form-control:focus {
   outline: 1px solid #5e4659;
   box-shadow: none;
+}
+
+/* === Calendar Style === */
+
+.rmdp-calendar {
+  margin: 0 auto;
+}
+
+.rmdp-header-values {
+  display: flex;
+  margin-left: 0 !important;
+  text-transform: uppercase;
+  font-family: "verlag-bold", sans-serif;
+  color: #5e4659 !important;
+}
+
+.rmdp-header-values span {
+  position: relative;
+  background-color: #f3f2f3;
+  z-index: 10;
+  padding: 0px 10px !important;
+}
+
+.rmdp-header-values::after {
+  content: "";
+  position: absolute;
+  border: 1px solid #5e4659;
+  width: 95%;
+  padding-right: 0px;
+  align-self: center;
+  margin-left: auto;
+}
+
+.rmdp-week-day {
+  color: #5e4659 !important;
+}
+
+.rmdp-day.rmdp-selected span:not(.highlight),
+.rmdp-day.rmdp-today span {
+  background-color: #5e4659 !important;
+}
+
+.rmdp-day:not(.rmdp-disabled):not(.rmdp-day-hidden) span:hover {
+  background-color: #bd94ae !important;
+}
+
+/* === End of Calendar Style === */
+
+@media (min-width: 1200px) {
+  .main-title {
+    font-size: 35px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
 }
