@@ -21,7 +21,7 @@ export default function StudentForm() {
 
   const handleSubmission = (data) => {
     console.log(data);
-    console.log(data.date[1]?.format());
+    console.log(data.date[0]?.format());
     dispatch(submitStudentForm(data));
     navigate("../menu");
   };
