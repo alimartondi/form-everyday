@@ -7,7 +7,8 @@ export default function MenuForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmission = () => {
+  const handleSubmission = (data) => {
+    console.log(data);
     // dispatch(submitStudentForm({ studentName: "Ali", age: 26 }));
     navigate("../summary");
   };
@@ -18,6 +19,7 @@ export default function MenuForm() {
         <div className="row font-verlag-regular text-eggplant mb-5">
           <div className="col-lg-4">
             <h5>Calendar goes here</h5>
+            <p>Submitted Date: {handleSubmission?.format?.("MMMM D YYYY")}</p>
           </div>
           <div className="col-lg-1 d-flex justify-content-center">
             <span className="border-end"></span>

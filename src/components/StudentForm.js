@@ -21,7 +21,7 @@ export default function StudentForm() {
 
   const handleSubmission = (data) => {
     console.log(data);
-    console.log(data.date[0]?.format());
+    console.log(data.date[0]?.format?.("MMMM D YYYY"));
     dispatch(submitStudentForm(data));
     navigate("../menu");
   };
@@ -138,9 +138,9 @@ export default function StudentForm() {
                         console.log(date);
                         onChange(date);
                       }}
-                      format="DD/MM/YYYY"
+                      format={"en" ? "MM/DD/YYYY" : "YYYY/MM/DD"}
                       shadow={false}
-                      multiple={true}
+                      multiple
                       buttons={false}
                       hideYear={true}
                       className="c-calendar border-0 bg-transparent w-100 p-0"
@@ -148,6 +148,9 @@ export default function StudentForm() {
                   )}
                 />
                 <p className="ms-3">Total number of days : 3 Day(s)</p>
+                <p>
+                  Submitted Date: {handleSubmission?.format?.("MMMM D YYYY")}
+                </p>
               </div>
             </div>
           </div>
