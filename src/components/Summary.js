@@ -1,16 +1,54 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Header from "./layout/Header";
 
 export default function Summary() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  const cateringOrder = useSelector((state) => state.cateringOrder);
+  console.log({ cateringOrder });
   const navigate = useNavigate();
 
   const handleSubmission = () => {
     // dispatch(submitStudentForm({ studentName: "Ali", age: 26 }));
     navigate("../thankyou");
   };
+
+  const summaryDataReal = [
+    {
+      title: `Student's name`,
+      value: cateringOrder.studentName,
+    },
+    {
+      title: "Age",
+      value: cateringOrder.age,
+    },
+    {
+      title: "School detail",
+      value: cateringOrder.school,
+    },
+    {
+      title: "Class",
+      value: cateringOrder.class,
+    },
+    {
+      title: "Alergy",
+      value: cateringOrder.alergy,
+    },
+    {
+      title: "Parent's name",
+      value: cateringOrder.parents,
+    },
+    {
+      title: "E-mail",
+      value: cateringOrder.email,
+    },
+    {
+      title: "Phone number",
+      value: cateringOrder.phone,
+    },
+  ];
+
   return (
     <>
       <Header />
@@ -31,7 +69,7 @@ export default function Summary() {
           <div className="col-lg-4 mb-4 mb-md-0">
             <table className="table table-borderless font-verlag-regular text-eggplant">
               <tbody>
-                {summaryData.map((data, i) => (
+                {summaryDataReal.map((data, i) => (
                   <tr key={i} className="boder-0">
                     <td>{data.title}</td>
                     <td>:</td>

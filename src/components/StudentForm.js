@@ -1,28 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import { Calendar } from "react-multi-date-picker";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { submitStudentForm } from "../redux/cateringOrderSlice";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import Header from "./layout/Header";
+import { uniqueId } from "lodash";
 
 export default function StudentForm() {
-  const a = useSelector((state) => state.cateringOrder.studentName);
-  const { register, handleSubmit, control } = useForm({
+  const cateringOrder = useSelector((state) => state.cateringOrder);
+
+  const [dates, setDates] = useState(
+    () => cateringOrder.selectedDates.map((d) => new Date(d.date)) ?? []
+  );
+
+  const { register, handleSubmit } = useForm({
     defaultValues: {
-      studentName: a,
+      studentName: cateringOrder.studentName,
+      studentAge: cateringOrder.age,
+      studentSchool: cateringOrder.school,
+      studentParents: cateringOrder.parents,
+      studentClass: cateringOrder.class,
+      studentEmail: cateringOrder.email,
+      studentAlergy: cateringOrder.alergy,
+      studentPhone: cateringOrder.phone,
     },
   });
 
   let navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // console.log(useSelector((state) => state));
-
   const handleSubmission = (data) => {
+    if (dates.length === 0) {
+      alert("Please select at least one date");
+      return;
+    }
     console.log(data);
     console.log(data.date?.format?.("MMMM D YYYY"));
-    dispatch(submitStudentForm(data));
+    dispatch(
+      submitStudentForm({
+        studentName: data.studentName,
+        age: data.studentAge,
+        school: data.studentSchool,
+        parents: data.studentParents,
+        class: data.studentClass,
+        email: data.studentEmail,
+        alergy: data.studentAlergy,
+        phone: data.studentPhone,
+        selectedDates: dates
+          .map((date) => ({
+            id: uniqueId(),
+            date: date.format("DD MMMM YYYY"),
+          }))
+          .sort((a, b) => a.date.localeCompare(b.date)),
+      })
+    );
     navigate("../menu");
   };
 
@@ -128,7 +160,20 @@ export default function StudentForm() {
             <div className="col-md-4 font-verlag-regular text-eggplant">
               <div className="mx-auto" style={{ width: "fit-content" }}>
                 <p className="ms-3">Please pick your meal plan dates:</p>
-                <Controller
+                <Calendar
+                  value={dates}
+                  onChange={(date) => {
+                    console.log("onChange", date);
+                    setDates(date);
+                  }}
+                  format={"DD MM YYYY"}
+                  shadow={false}
+                  multiple
+                  buttons={false}
+                  hideYear={true}
+                  className="c-calendar border-0 bg-transparent w-100 p-0"
+                />
+                {/* <Controller
                   control={control}
                   name="date"
                   render={({ field: { onChange, name, value } }) => (
@@ -146,10 +191,9 @@ export default function StudentForm() {
                       className="c-calendar border-0 bg-transparent w-100 p-0"
                     />
                   )}
-                />
-                <p className="ms-3">Total number of days : 3 Day(s)</p>
-                <p>
-                  Submitted Date: {handleSubmission?.format?.("MMMM D YYYY")}
+                /> */}
+                <p className="ms-3">
+                  Total number of days : {dates.length ?? "0"} Day(s)
                 </p>
               </div>
             </div>

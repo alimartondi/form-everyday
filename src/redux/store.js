@@ -1,10 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import cateringOrderReducer from "./cateringOrderSlice";
-import logger from "redux-logger";
+import { createLogger } from "redux-logger";
+
+const reduxLogger = createLogger({
+  collapsed: true,
+});
 
 export const store = configureStore({
   reducer: {
     cateringOrder: cateringOrderReducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(reduxLogger),
 });

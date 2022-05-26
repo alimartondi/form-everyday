@@ -161,3 +161,20 @@ label {
     font-size: 18px;
   }
 }
+
+.menu-available-date {
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 5px 4px;
+  transition: all 150ms ease-in;
+}
+
+.menu-available-date:hover {
+  background-color: #bd94ae;
+  color: white;
+}
+
+.menu-available-date.active {
+  background-color: #5e4659;
+  color: white;
+}
