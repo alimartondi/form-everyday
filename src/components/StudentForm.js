@@ -21,7 +21,7 @@ export default function StudentForm() {
 
   const handleSubmission = (data) => {
     console.log(data);
-    console.log(data.date[0]?.format?.("MMMM D YYYY"));
+    console.log(data.date?.format?.("MMMM D YYYY"));
     dispatch(submitStudentForm(data));
     navigate("../menu");
   };
@@ -135,7 +135,7 @@ export default function StudentForm() {
                     <Calendar
                       value={value || []}
                       onChange={(date) => {
-                        console.log(date);
+                        console.log(date.format?.("MMMM D YYYY"));
                         onChange(date);
                       }}
                       format={"en" ? "MM/DD/YYYY" : "YYYY/MM/DD"}
